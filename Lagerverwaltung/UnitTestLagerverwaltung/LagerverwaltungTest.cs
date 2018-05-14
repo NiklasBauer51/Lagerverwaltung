@@ -8,35 +8,44 @@ namespace UnitTestLagerverwaltung
     [TestClass]
     public class LagerverwaltungTest
     {
-        Lager Lager1 = new Lager();
-        string Ort;
-        int BestandKoeln;
-        int BestandBonn;
-        int GesamtLagerbestand;
-        
 
         [TestMethod]
-        public void Buchen()
+        [TestCategory("Buchen")]
+        public void BuchenTest()
         {
-            GesamtLagerbestand = BestandBonn + BestandKoeln;
-            GesamtLagerbestand = GesamtLagerbestand - 500;
-            if(GesamtLagerbestand == 0)
-            {
-                BestandKoeln = 0;
-                BestandBonn = 0;
-            }
+            Lager Lager1 = new Lager();
+            int GesamtLagerbestand = Lager1.Buchen(200, 301); ;
+            Assert.AreEqual(GesamtLagerbestand, 1);
+        }
+
+        [TestMethod]
+        [TestCategory("ArgumentOutOfRangeException")]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void UmlagernTest()
+        {
+            Lager Lager1 = new Lager();
+            Lager1.Umlagern(10001, 6000);
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        [TestCategory("Auslagern")]
+        public void AuslagernTest()
+        {
+            Lager Lager1 = new Lager();
+            int Gesamtlagerbestand = Lager1.Auslagern(100,500);
+            Assert.AreEqual(Gesamtlagerbestand, 600);
 
         }
 
         [TestMethod]
-        public void Umlagern()
+        [TestCategory("ArgumentOutOfRangeException")]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void KaufenTest()
         {
-            BestandKoeln = 6000;
-            BestandBonn = 10000;
-            if (BestandBonn == 10000)
-            {
-
-            }
+            Lager Lager1 = new Lager();
+            Lager1.Kaufen(500);
+            Assert.Fail();
 
         }
 
