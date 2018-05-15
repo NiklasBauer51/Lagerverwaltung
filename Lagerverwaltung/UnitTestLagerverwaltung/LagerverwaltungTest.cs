@@ -1,8 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using System.Collections.Generic;
-
 namespace UnitTestLagerverwaltung
 {
     [TestClass]
@@ -13,8 +11,8 @@ namespace UnitTestLagerverwaltung
         [TestCategory("Buchen")]
         public void BuchenTest()
         {
-            Lager Lager1 = new Lager();
-            int GesamtLagerbestand = Lager1.Buchen(200, 301); ;
+            LagerTest Lagersicht1 = new LagerTest();
+            int GesamtLagerbestand = Lagersicht1.Buchen(200, 301); ;
             Assert.AreEqual(GesamtLagerbestand, 1);
         }
 
@@ -23,8 +21,8 @@ namespace UnitTestLagerverwaltung
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void UmlagernTest()
         {
-            Lager Lager1 = new Lager();
-            Lager1.Umlagern(10001, 6000);
+            LagerTest Lagersicht2 = new LagerTest();
+            Lagersicht2.Umlagern(10001, 6000);
             Assert.Fail();
         }
 
@@ -32,10 +30,9 @@ namespace UnitTestLagerverwaltung
         [TestCategory("Auslagern")]
         public void AuslagernTest()
         {
-            Lager Lager1 = new Lager();
-            int Gesamtlagerbestand = Lager1.Auslagern(100,500);
+            LagerTest Lagersicht3 = new LagerTest();
+            int Gesamtlagerbestand = Lagersicht3.Auslagern(100,500);
             Assert.AreEqual(Gesamtlagerbestand, 600);
-
         }
 
         [TestMethod]
@@ -43,10 +40,9 @@ namespace UnitTestLagerverwaltung
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void KaufenTest()
         {
-            Lager Lager1 = new Lager();
-            Lager1.Kaufen(500);
+            LagerTest Lagersicht4 = new LagerTest();
+            Lagersicht4.Kaufen(500);
             Assert.Fail();
-
         }
 
     }

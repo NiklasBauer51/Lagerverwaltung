@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UnitTestLagerverwaltung
 {
-    class Lager
+    class LagerTest
     {
 
         public int Buchen(int BestandBonn, int BestandKoeln)
@@ -20,13 +20,12 @@ namespace UnitTestLagerverwaltung
             return BestandBonn + BestandKoeln;
         }
 
-        public int Umlagern(int BestandBonn, int BestandKoeln)
+        public void Umlagern(int BestandBonn, int BestandKoeln)
         {
             if(BestandBonn > 10000)
             {
                 throw new ArgumentOutOfRangeException();
             }
-            return BestandBonn;
 
         }
 
@@ -42,7 +41,7 @@ namespace UnitTestLagerverwaltung
             return BestandKoeln + BestandLeverkusen;
         }
 
-        public int Kaufen(int BestandKoeln)
+        public void Kaufen(int BestandKoeln)
         {
             int Kaufmenge = -100;
 
@@ -50,8 +49,6 @@ namespace UnitTestLagerverwaltung
             {
                 throw new ArgumentOutOfRangeException();
             }
-
-            return BestandKoeln;
 
         }
     }

@@ -50,7 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Lager.cs" />
+    <Compile Include="LagerTest.cs" />
     <Compile Include="LagerverwaltungTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
